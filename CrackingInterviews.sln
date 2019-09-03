@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DeleteMiddleNode", "DeleteM
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Partition", "Partition\Partition.vcxproj", "{BB19287C-0194-4E0C-9D5E-5DC36B90203C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SumLists", "SumLists\SumLists.vcxproj", "{96609E96-A2C2-415B-B856-62965EE58F31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -80,6 +82,14 @@ Global
 		{BB19287C-0194-4E0C-9D5E-5DC36B90203C}.Release|x64.Build.0 = Release|x64
 		{BB19287C-0194-4E0C-9D5E-5DC36B90203C}.Release|x86.ActiveCfg = Release|Win32
 		{BB19287C-0194-4E0C-9D5E-5DC36B90203C}.Release|x86.Build.0 = Release|Win32
+		{96609E96-A2C2-415B-B856-62965EE58F31}.Debug|x64.ActiveCfg = Debug|x64
+		{96609E96-A2C2-415B-B856-62965EE58F31}.Debug|x64.Build.0 = Debug|x64
+		{96609E96-A2C2-415B-B856-62965EE58F31}.Debug|x86.ActiveCfg = Debug|Win32
+		{96609E96-A2C2-415B-B856-62965EE58F31}.Debug|x86.Build.0 = Debug|Win32
+		{96609E96-A2C2-415B-B856-62965EE58F31}.Release|x64.ActiveCfg = Release|x64
+		{96609E96-A2C2-415B-B856-62965EE58F31}.Release|x64.Build.0 = Release|x64
+		{96609E96-A2C2-415B-B856-62965EE58F31}.Release|x86.ActiveCfg = Release|Win32
+		{96609E96-A2C2-415B-B856-62965EE58F31}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
