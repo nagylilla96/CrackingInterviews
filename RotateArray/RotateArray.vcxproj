@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A0525CFD-D7D6-4D52-A3E1-B9C5415A67E4}</ProjectGuid>
+    <ProjectGuid>{522BBBE7-D3F3-45B2-8764-DA9E526E0931}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>StockArray</RootNamespace>
+    <RootNamespace>RotateArray</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
