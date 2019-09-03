@@ -2,6 +2,11 @@
 #include <unordered_map>
 using namespace std;
 
+// Chapter 2, exercise 1: remove duplicates from a linked list
+//		Method 1: in o(n) time
+//		Method 2: o(1) extra space (in-place)
+
+// A node structure
 class Node {
 public:
 	Node* next = NULL;
@@ -16,6 +21,7 @@ class LinkedList {
 public:
 	Node* first = NULL;
 
+	// Insert a node into the linked list
 	void insert(Node* n) {
 		if (first == NULL) {
 			first = n;
@@ -28,6 +34,7 @@ public:
 		current->next = n;
 	}
 
+	// Print the linked list
 	void print() {
 		if (first == NULL) {
 			cout << "Empty list :(" << endl;
@@ -39,6 +46,7 @@ public:
 		}
 	}
 
+	// Delete a node
 	void deleteNode(Node* n) {
 		if (first == NULL) return;
 		if (n == first) {
@@ -62,6 +70,7 @@ public:
 		}
 	}
 
+	// Remove duplicates in o(n) time using a hashmap (max o(n) extra space)
 	void removeDuplicates() {
 		unordered_map<int, int> umap;
 
@@ -70,7 +79,7 @@ public:
 		}
 
 		Node* current = first;
-		while (current != NULL) {
+		while (NULL != current) {
 			if (!umap[current->value]) {
 				umap[current->value] = 1;
 			}
@@ -82,11 +91,32 @@ public:
 			}
 			current = current->next;
 		}
-		cout << "After deleting the duplicates:" << endl;
+		cout << "\nAfter deleting the duplicates:" << endl;
+		print();
+	}
+
+	// Remove duplicates using a fast pointer in o(n^2) time but o(1) extra space
+	void removeDuplicates2() {
+		if (NULL == first) return;
+
+		Node* slow = first;
+		while (NULL != slow) {
+			Node* fast = slow->next;
+			while (NULL != fast) {
+				if (fast->value == slow->value) {
+					deleteNode(fast);
+					break;
+				}
+				fast = fast->next;
+			}
+			slow = slow->next;
+		}
+		cout << "\nAfter deleting the duplicates:" << endl;
 		print();
 	}
 };
 
+// Test
 int main() {
 	LinkedList* list = new LinkedList();
 	list->insert(new Node(1));
@@ -96,6 +126,6 @@ int main() {
 	list->insert(new Node(1));
 	list->insert(new Node(4));
 	list->print();
-	list->removeDuplicates();
+	list->removeDuplicates2();
 	getchar();
 }
