@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArrayAsStack", "ArrayAsStac
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MinStack", "MinStack\MinStack.vcxproj", "{13941B92-CE41-42C7-AD05-CC87D6641E60}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StackOfPlates", "StackOfPlates\StackOfPlates.vcxproj", "{D047AB16-0E12-4D0D-B1A7-B8104169DC53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -110,6 +112,14 @@ Global
 		{13941B92-CE41-42C7-AD05-CC87D6641E60}.Release|x64.Build.0 = Release|x64
 		{13941B92-CE41-42C7-AD05-CC87D6641E60}.Release|x86.ActiveCfg = Release|Win32
 		{13941B92-CE41-42C7-AD05-CC87D6641E60}.Release|x86.Build.0 = Release|Win32
+		{D047AB16-0E12-4D0D-B1A7-B8104169DC53}.Debug|x64.ActiveCfg = Debug|x64
+		{D047AB16-0E12-4D0D-B1A7-B8104169DC53}.Debug|x64.Build.0 = Debug|x64
+		{D047AB16-0E12-4D0D-B1A7-B8104169DC53}.Debug|x86.ActiveCfg = Debug|Win32
+		{D047AB16-0E12-4D0D-B1A7-B8104169DC53}.Debug|x86.Build.0 = Debug|Win32
+		{D047AB16-0E12-4D0D-B1A7-B8104169DC53}.Release|x64.ActiveCfg = Release|x64
+		{D047AB16-0E12-4D0D-B1A7-B8104169DC53}.Release|x64.Build.0 = Release|x64
+		{D047AB16-0E12-4D0D-B1A7-B8104169DC53}.Release|x86.ActiveCfg = Release|Win32
+		{D047AB16-0E12-4D0D-B1A7-B8104169DC53}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
