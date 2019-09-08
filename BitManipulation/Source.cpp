@@ -1,5 +1,8 @@
 #include <iostream>
+#include <string>
 using namespace std;
+
+// Bit manipulation exercises (chapter 5)
 
 bool exercise1(int &n, int m, int i, int j) {
 	// i has to be smaller than j, if not, swap them
@@ -24,10 +27,33 @@ bool exercise1(int &n, int m, int i, int j) {
 	return true;
 }
 
+string exercise2(double num) {
+	if (num >= 1 || num <= 0) return "ERROR";
+
+	string number = "0.";
+
+	while (num != 0) {
+		if (number.length() >= 32) {
+			return "ERROR";
+		}
+		double temp = num * 2;
+		if (temp >= 1) {
+			number += "1";
+			num = temp - 1;
+		}
+		else {
+			number += "0";
+			num = temp;
+		}
+	}
+	return number;
+}
+
 int main() {
 	int n = 1024;
-	if (!exercise1(n, 19, 2, 6)) cout << "FALSE";
-	else cout << n;
+	if (!exercise1(n, 19, 2, 6)) cout << "1. FALSE";
+	else cout << "1. " << n;
+	cout << "\n2. " << exercise2(0.625) << endl;
 	getchar();
 	return 0;
 }
