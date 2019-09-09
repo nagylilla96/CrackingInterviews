@@ -1,5 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <algorithm>
+#include <cstdlib>
+#include <unordered_map>
 using namespace std;
 
 // Chapter 10 - woo!
@@ -27,6 +31,34 @@ void print(int* a, int sizeA) {
 	cout << endl;
 }
 
+// Exercise 10.2
+string sortString(string a) {
+	string b = a;
+	sort(b.begin(), b.end());
+	return b;
+}
+
+void orderStrings(vector<string> &strings) {
+	unordered_map<string, vector<string>> dict;
+
+	for (auto &s : strings) {
+		dict[sortString(s)].push_back(s);
+	}
+
+	strings.clear();
+
+	for (auto &x: dict) {
+		for (auto &s : x.second) {
+			strings.push_back(s);
+		}
+	}
+
+	for (auto &s : strings) {
+		cout << s << " ";
+	}
+	cout << endl;
+}
+
 int main() {
 	int a[4] = { 1, 2, 3, 5 };
 	int b[5] = { 1, 2, 4, 8, 9 };
@@ -41,5 +73,13 @@ int main() {
 	}
 	merge(vecA, vecB, 4, 5);
 	print(vecA, 9);
+
+	vector<string> strings;
+	strings.push_back("nana");
+	strings.push_back("anna");
+	strings.push_back("mama");
+	strings.push_back("amma");
+	strings.push_back("laba");
+	orderStrings(strings);
 	getchar();
 }
