@@ -52,6 +52,21 @@ string robot(int posR, int posC, int r, int c, int** grid, string** visited) {
 	return str;
 }
 
+// Exercise 8.3
+int findMagicIndex(int start, int end, int arr[]) {
+	if (start > end) return -1;
+
+	int middle = (start + end) / 2;
+
+	if (middle == arr[middle]) return middle;
+
+	int sol1 = findMagicIndex(start, middle - 1, arr);
+	if (sol1 != -1) return sol1;
+
+	int sol2 = findMagicIndex(middle + 1, end, arr);
+	return sol2;
+}
+
 int main() {
 	int n = 36;
 	int* memo = (int*)calloc(n, sizeof(int));
@@ -84,6 +99,8 @@ int main() {
 		free(copyGrind[i]);
 		free(visitGrid[i]);
 	}
+	int arr[6] = { 1, 1, 3, 4, 5, 12 };
+	cout << "\n3. " << findMagicIndex(0, 5, arr) << endl;
 	free(copyGrind);
 	free(visitGrid);
 	getchar();
