@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 // Wow, I'm really curious how this will work out
@@ -16,6 +17,41 @@ int steps(int index, int n, int* memo) {
 	return memo[index];
 }
 
+#pragma warning(disable : 4996)
+string temp(int row, int col) {
+	char temp[10];
+	sprintf(temp, "(%d, %d) ", row, col);
+	return temp;
+}
+
+// Exercise 8.2 -> cancer code cause I cannot deal with strings
+string robot(int posR, int posC, int r, int c, int** grid, string** visited) {
+	if (posR == r - 1 && posC == c - 1) {
+		visited[posR][posC] = temp(posR, posC);
+		return visited[posR][posC];
+	}
+	if (posR >= r) return "ERROR";
+	if (posC >= c) return "ERROR";
+	if (grid[posR][posC] == 1) return "ERROR";
+	if (visited[posR][posC].compare("") != 0) {
+		return visited[posR][posC];
+	}
+
+	string str = robot(posR + 1, posC, r, c, grid, visited);
+	if (str.compare("ERROR") != 0) {
+		str = temp(posR, posC) + str;
+		visited[posR][posC] = str;
+		return str;
+	}
+	str = robot(posR, posC + 1, r, c, grid, visited);
+	if (str.compare("ERROR") != 0) {
+		str = temp(posR, posC) + str;
+		visited[posR][posC] = str;
+		return str;
+	}
+	return str;
+}
+
 int main() {
 	int n = 36;
 	int* memo = (int*)calloc(n, sizeof(int));
@@ -23,5 +59,32 @@ int main() {
 		memo[i] = -1;
 	}
 	cout << steps(0, n, memo) << endl;
+	int rows = 4;
+	int cols = 5;
+	int grid[4][5] = {
+		{0, 1, 0, 0, 1},
+		{0, 0, 1, 0, 0},
+		{0, 0, 0, 1, 0},
+		{1, 1, 0, 0, 0}
+	};
+	int** copyGrind = (int**)malloc(rows * sizeof(int*));
+	string** visitGrid = (string**)malloc(rows * sizeof(string*));
+	for (int i = 0; i < rows; i++) {
+		copyGrind[i] = (int*)malloc(cols * sizeof(int));
+		visitGrid[i] = (string*)calloc(cols, sizeof(string));
+	}
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			copyGrind[i][j] = grid[i][j];
+			visitGrid[i][j] += "";
+		}
+	}
+	cout << robot(0, 0, rows, cols, copyGrind, visitGrid);
+	for (int i = 0; i < rows; i++) {
+		free(copyGrind[i]);
+		free(visitGrid[i]);
+	}
+	free(copyGrind);
+	free(visitGrid);
 	getchar();
 }
